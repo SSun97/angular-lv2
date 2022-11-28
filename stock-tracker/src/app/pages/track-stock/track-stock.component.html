@@ -1,0 +1,16 @@
+<div class='container border border-primary'>
+  <p>Enter the symbol of a stock to track (ie. AAPL, TSLA, GOOGL)</p>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+      <div class='d-flex flex-row'>
+        <div class="mb-3 px-4">
+          <input type="text" class="form-control" placeholder="{{userInput.stockSymbol}}" name="stockSymbolInput" aria-describedby="emailHelp" [(ngModel)]="userInput.stockSymbol" required minlength="3" maxlength="10" #nameField="ngModel" [class.field-error]="form.submitted && nameField.invalid">
+
+        </div>
+        <button type="submit" class="btn btn-primary mb-3">Track Stock</button>
+      </div>
+      <div [hidden]="!form.submitted||nameField.valid" class="alert alert-danger mx-4">
+        Enter a stock symbol, 3-10 characters
+      </div>
+    </form>
+</div>
+{{userInput | json}}

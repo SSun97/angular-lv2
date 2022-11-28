@@ -3,14 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TrackStockComponent } from './pages/track-stock/track-stock.component';
+import { StockDetailsComponent } from './pages/stock-details/stock-details.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TrackStockComponent,
+    StockDetailsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
