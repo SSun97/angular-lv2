@@ -24,7 +24,7 @@ export class TrackStockComponent implements OnInit {
     console.log('in onSubmit():', form.valid);
     if (form.valid) {
       this.dataService.getCompanyName(this.userInput).subscribe(
-        result => console.log(result.result[0]),
+        result => console.log(result.result[0].description),
         error => console.log(error)
       );
       this.dataService.getCompanyQuote(this.userInput).subscribe(
