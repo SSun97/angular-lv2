@@ -16,7 +16,7 @@ export class TrackStockComponent implements OnInit {
   }
 
   userInput: UserInput = {...this.defaultUserInput};
-
+  btnText: string = 'Track Stock';
   companyCurrentDataList: CompanyCurrentData[] = [];
   companyCurrentData: CompanyCurrentData = {
     c: 0,
@@ -48,10 +48,18 @@ export class TrackStockComponent implements OnInit {
           name: companyName.result[0].description,
           code: companyName.result[0].displaySymbol
         }
+        //delete old data
+        this.companyCurrentDataList = this.companyCurrentDataList.filter((item) => item.code !== this.companyCurrentData.code);
         this.companyCurrentDataList.splice(0,0,this.companyCurrentData);
         this.userInput = {...this.defaultUserInput};
+        //reset form
+        form.resetForm();
       }
       );
   }
+  }
+
+  onDelete(code: string): void {
+    this.companyCurrentDataList = this.companyCurrentDataList.filter((item) => item.code !== code);
   }
 }

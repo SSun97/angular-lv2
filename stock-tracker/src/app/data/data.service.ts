@@ -13,10 +13,10 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   getCompanyName(userInput: UserInput): Observable<CompanyNameResult> {
-    return this.http.get<CompanyNameResult>(`https://finnhub.io/api/v1/search?q=${userInput.stockSymbol}&token=ce2jociad3ia3rm8edu0ce2jociad3ia3rm8edug`);
+    return this.http.get<CompanyNameResult>(`https://finnhub.io/api/v1/search?q=${userInput.stockSymbol.toUpperCase()}&token=ce2jociad3ia3rm8edu0ce2jociad3ia3rm8edug`);
   };
 
   getCompanyQuote(userInput: UserInput): Observable<CompanyQuote> {
-    return this.http.get<CompanyQuote>(`https://finnhub.io/api/v1/quote?symbol=${userInput.stockSymbol}&token=ce2jociad3ia3rm8edu0ce2jociad3ia3rm8edug`);
+    return this.http.get<CompanyQuote>(`https://finnhub.io/api/v1/quote?symbol=${userInput.stockSymbol.toUpperCase()}&token=ce2jociad3ia3rm8edu0ce2jociad3ia3rm8edug`);
   };
 }
