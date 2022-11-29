@@ -1,9 +1,32 @@
 <div class='container border border-primary'>
-  <p>Enter the symbol of a stock to track (ie. AAPL, TSLA, GOOGL)</p>
-    <form class='d-flex flex-row'>
-      <div class="mb-3 px-4">
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  <div>
+    <p>Tesla (TSLA)</p>
+    <div class='d-flex justify-content-between mb-4'>
+      <div class='col-3 d-flex flex-row justify-content-around border border-primary'>
+        <div>
+          <p>Month</p>
+          <p>Change</p>
+          <p>MSPR</p>
+        </div>
+        <div>⮭</div>
       </div>
-      <button type="submit" class="btn btn-primary mb-3">Track Stock</button>
-    </form>
+      <div class='col-3 d-flex flex-row justify-content-around border border-primary'>
+        <div>
+          <p>Month</p>
+          <p>Change</p>
+          <p>MSPR</p>
+        </div>
+        <div>⮭</div>
+      </div>
+      <div class='col-3 d-flex flex-row justify-content-around border border-primary'>
+        <div>
+          <p>Month</p>
+          <p>Change</p>
+          <p>MSPR</p>
+        </div>
+        <div>⮭</div>
+      </div>
+    </div>
+    <button class='btn btn-primary mb-4' [routerLink]="['/track-stock']"><--Back</button>
+  </div>
 </div>

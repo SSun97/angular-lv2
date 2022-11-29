@@ -34,6 +34,8 @@
       <span *ngIf="item.dp===0" class='text-dark display-1 col-2 align-top'>⬌</span>
   
     </div>
-  
+    <div class='mb-3'>
+      <button class='btn btn-primary' [routerLink]="['/sentiment', item.code]">Go to social sentiment details ></button>
+    </div>
   </div>
 </div>

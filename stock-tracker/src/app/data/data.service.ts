@@ -19,4 +19,8 @@ export class DataService {
   getCompanyQuote(userInput: UserInput): Observable<CompanyQuote> {
     return this.http.get<CompanyQuote>(`https://finnhub.io/api/v1/quote?symbol=${userInput.stockSymbol.toUpperCase()}&token=ce2jociad3ia3rm8edu0ce2jociad3ia3rm8edug`);
   };
+  
+  getSentiment(userInput: UserInput): Observable<any> {
+    return this.http.get<any>(`https://finnhub.io/api/v1/stock/insider-sentiment?symbol=${userInput.stockSymbol.toUpperCase()}&from=2022-08-01&to=2022-11-30&token=ce2jociad3ia3rm8edu0ce2jociad3ia3rm8edug`);
+  }
 }
