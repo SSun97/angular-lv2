@@ -13,4 +13,26 @@
       </div>
     </form>
 </div>
+<br>
+<br>
+<div *ngIf="companyCurrentDataList">
+  <div *ngFor="let item of companyCurrentDataList" class='container border border-primary'>
+    <div class='d-flex flex-row me-auto justify-content-between'>
+      <p>{{item.name}} ({{item.code}})</p>
+      <button class='btn'>X</button>
+    </div>
+    <div class='d-flex flex-row  px-6 justify-content-evenly'>
+      <div class='d-flex flex-row flex-wrap'>
+        <p class='px-2 col-6'>Change Today:{{item.dp}}</p>
+        <p class='px-2 col-6'>Opening Price:{{item.o}}</p>
+        <p class='px-2 col-6'>Current Price:{{item.c}}</p>
+        <p class='px-2 col-6'>High Price:{{item.h}}</p>
+      </div>
+      <img class="flex" src="https://via.placeholder.com/150" alt="">
+  
+    </div>
+  
+  </div>
+</div>
 {{userInput | json}}
+{{companyCurrentDataList | json}}

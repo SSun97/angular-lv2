@@ -4,7 +4,6 @@ import { Observable, of } from 'rxjs';
 import { CompanyNameResult } from './company-name-result';
 import { CompanyQuote } from './company-quote';
 import { UserInput } from './user-input';
-import { map, filter, tap } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
