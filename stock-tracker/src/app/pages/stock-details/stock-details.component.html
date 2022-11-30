@@ -1,30 +1,16 @@
 <div class='container border border-primary'>
   <div>
-    <p>Tesla (TSLA)</p>
+    <p>{{companyName}} ({{symbol}})</p>
     <div class='d-flex justify-content-between mb-4'>
-      <div class='col-3 d-flex flex-row justify-content-around border border-primary'>
-        <div>
-          <p>Month</p>
-          <p>Change</p>
-          <p>MSPR</p>
+      <div *ngFor="let item of companySentimentArray" class='col-3 d-flex flex-row justify-content-around border border-primary'>
+        <div >
+          <p>{{getMonthName(item.month)}}</p>
+          <p>Change:{{item.change}}</p>
+          <p>MSPR:{{item.mspr}}</p>
         </div>
-        <div>⮭</div>
-      </div>
-      <div class='col-3 d-flex flex-row justify-content-around border border-primary'>
-        <div>
-          <p>Month</p>
-          <p>Change</p>
-          <p>MSPR</p>
-        </div>
-        <div>⮭</div>
-      </div>
-      <div class='col-3 d-flex flex-row justify-content-around border border-primary'>
-        <div>
-          <p>Month</p>
-          <p>Change</p>
-          <p>MSPR</p>
-        </div>
-        <div>⮭</div>
+        <span *ngIf="item.change>0" class='text-success display-1 col-2 align-top'>⮭</span>
+        <span *ngIf="item.change<0" class='text-danger display-1 col-2 align-top'>⮯</span>
+        <span *ngIf="item.change===0" class='text-dark display-1 col-2 align-top'>⬌</span>
       </div>
     </div>
     <button class='btn btn-primary mb-4' [routerLink]="['/track-stock']"><--Back</button>

@@ -6,6 +6,6 @@ export interface CompanySemtiment {
   mspr: number;
 }
 
-export interface CompanySemtimentResult {
+export interface CompanySentimentResult {
   data: CompanySemtiment[];
 }

@@ -6,7 +6,7 @@
           <input type="text" class="form-control" placeholder="{{userInput.stockSymbol}}" name="stockSymbolInput" aria-describedby="emailHelp" [(ngModel)]="userInput.stockSymbol" required minlength="3" maxlength="10" #nameField="ngModel" [class.field-error]="form.submitted && nameField.invalid">
 
         </div>
-        <button type="submit" class="btn btn-primary mb-3" ngModel>{{btnText}}</button>
+        <button type="submit" class="btn btn-primary mb-3">{{btnText}}</button>
       </div>
       <div [hidden]="!form.submitted||nameField.valid" class="alert alert-danger mx-4">
         Enter a stock symbol, 3-10 characters
@@ -35,7 +35,7 @@
   
     </div>
     <div class='mb-3'>
-      <button class='btn btn-primary' [routerLink]="['/sentiment', item.code]">Go to social sentiment details ></button>
+      <button class='btn btn-primary' [routerLink]="['/sentiment', item.code, item.name]">Go to social sentiment details ></button>
     </div>
   </div>
 </div>

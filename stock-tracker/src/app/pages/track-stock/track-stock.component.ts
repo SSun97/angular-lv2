@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { forkJoin } from 'rxjs';
 import { CompanyCurrentData } from 'src/app/data/company-current-data';
+import { CompanySelectedService } from 'src/app/data/company-selected.service';
 import { DataService } from 'src/app/data/data.service';
 import { UserInput } from 'src/app/data/user-input';
 @Component({
@@ -17,7 +18,7 @@ export class TrackStockComponent implements OnInit {
 
   userInput: UserInput = {...this.defaultUserInput};
   btnText: string = 'Track Stock';
-  companyCurrentDataList: CompanyCurrentData[] = [];
+  //companyCurrentDataList: CompanyCurrentData[] = [];
   companyCurrentData: CompanyCurrentData = {
     c: 0,
     dp: 0,
@@ -26,8 +27,15 @@ export class TrackStockComponent implements OnInit {
     name: '',
     code: ''
   }
-
-  constructor(private dataService: DataService) { 
+  // getter of companyCurrentDataList
+  get companyCurrentDataList(): CompanyCurrentData[] {
+    return this.companySelectedService.companySelected;
+  }
+  // setter of companyCurrentDataList
+  set companyCurrentDataList(companyCurrentDataList: CompanyCurrentData[]) {
+    this.companySelectedService.companySelected = companyCurrentDataList;
+  }
+  constructor(private dataService: DataService, private companySelectedService: CompanySelectedService) {
   }
 
   ngOnInit(): void {
